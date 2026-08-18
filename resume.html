@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abid Memon — Resume | IT Manager &amp; Software Engineer</title>
+<meta name="description" content="Resume of Abid Memon — IT Manager and Software Engineer in Jeddah, Saudi Arabia. Odoo ERP implementation, Android development, database architecture and IT infrastructure.">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF1F5;
+  --sheet:#FFFFFF;
+  --sunk:#E9EDF2;
+  --ink:#0D1626;
+  --ink-soft:#3F4C63;
+  --ink-faint:#76829A;
+  --line:rgba(13,22,38,.14);
+  --line-soft:rgba(13,22,38,.08);
+  --pine:#0B5D4E;
+  --pine-tint:rgba(11,93,78,.08);
+  --display:'Bricolage Grotesque',system-ui,sans-serif;
+  --text:'Inter Tight',system-ui,sans-serif;
+  --code:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--text);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* ── toolbar (screen only) ── */
+.bar{position:sticky;top:0;z-index:20;background:rgba(238,241,245,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.bar-in{max-width:900px;margin:0 auto;padding:12px 22px;display:flex;flex-wrap:wrap;gap:12px;
+  align-items:center;justify-content:space-between}
+.bar b{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:.98rem}
+.acts{display:flex;flex-wrap:wrap;gap:9px}
+.act{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;cursor:pointer;
+  font-family:var(--code);font-size:.7rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;
+  border:1px solid var(--ink);background:transparent;color:var(--ink);transition:.2s}
+.act:hover{background:var(--ink);color:var(--paper)}
+.act.fill{background:var(--pine);border-color:var(--pine);color:#fff}
+.act.fill:hover{background:#094A3F;color:#fff}
+
+/* ── sheet ── */
+.sheet{max-width:900px;margin:26px auto 60px;background:var(--sheet);border:1px solid var(--line);
+  border-radius:12px;padding:44px 48px 46px;box-shadow:0 26px 50px -40px rgba(13,22,38,.6)}
+
+.head{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:start;
+  padding-bottom:20px;border-bottom:2px solid var(--ink)}
+h1{font-family:var(--display);font-weight:700;font-size:2.5rem;line-height:1;letter-spacing:-.035em}
+.role{font-family:var(--code);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pine);margin-top:9px}
+.head p{color:var(--ink-soft);font-size:.94rem;max-width:56ch;margin-top:12px}
+.contact{display:grid;gap:5px;font-family:var(--code);font-size:.72rem;color:var(--ink-soft);text-align:right;white-space:nowrap}
+.contact span{display:block}
+.contact a:hover{color:var(--pine)}
+
+section{padding-top:24px}
+h2{font-family:var(--code);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pine);
+  padding-bottom:7px;border-bottom:1px solid var(--line);margin-bottom:16px}
+h3{font-family:var(--display);font-weight:600;font-size:1.02rem;letter-spacing:-.012em}
+
+/* experience */
+.job{padding-bottom:17px;margin-bottom:17px;border-bottom:1px solid var(--line-soft);break-inside:avoid}
+.job:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.job-top{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;justify-content:space-between}
+.job .org{font-family:var(--code);font-size:.74rem;color:var(--ink-faint);margin:3px 0 9px}
+.job .when{font-family:var(--code);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);white-space:nowrap}
+.job ul{list-style:none;display:grid;gap:6px}
+.job li{position:relative;padding-left:16px;font-size:.92rem;color:var(--ink-soft)}
+.job li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:1.5px;border-radius:1px;background:var(--pine);opacity:.8}
+
+/* skills grid */
+.skills{display:grid;grid-template-columns:150px 1fr;gap:9px 18px;align-items:baseline}
+.skills dt{font-family:var(--code);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.skills dd{font-size:.92rem;color:var(--ink-soft)}
+
+/* projects */
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.proj{border:1px solid var(--line);border-radius:9px;padding:13px 15px;background:var(--sheet);break-inside:avoid}
+.proj b{display:block;font-family:var(--display);font-weight:600;font-size:.95rem;margin-bottom:4px}
+.proj p{font-size:.85rem;color:var(--ink-soft);line-height:1.5}
+.proj em{display:block;font-style:normal;font-family:var(--code);font-size:.64rem;letter-spacing:.06em;color:var(--ink-faint);margin-top:7px}
+
+/* education + misc */
+.edu{display:grid;gap:12px}
+.edu div{display:flex;flex-wrap:wrap;gap:4px 14px;justify-content:space-between;align-items:baseline;
+  padding-bottom:11px;border-bottom:1px solid var(--line-soft)}
+.edu div:last-child{border-bottom:0;padding-bottom:0}
+.edu b{font-family:var(--display);font-weight:600;font-size:.98rem}
+.edu span{font-family:var(--code);font-size:.72rem;color:var(--ink-faint)}
+.edu i{font-style:normal;font-family:var(--code);font-size:.72rem;color:var(--pine)}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.pill{display:inline-block;font-family:var(--code);font-size:.68rem;color:var(--ink-soft);
+  border:1px solid var(--line);border-radius:6px;padding:5px 9px;margin:0 5px 5px 0;background:var(--sunk)}
+.foot{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);
+  font-family:var(--code);font-size:.66rem;letter-spacing:.06em;color:var(--ink-faint);
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between}
+
+@media(max-width:760px){
+  .sheet{margin:16px 12px 40px;padding:26px 22px 30px;border-radius:10px}
+  .head{grid-template-columns:1fr}
+  .contact{text-align:left}
+  h1{font-size:2rem}
+  .projects,.two{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr;gap:3px 0}
+  .skills dd{margin-bottom:9px}
+}
+
+/* ── print ── */
+@page{size:A4;margin:11mm 12mm}
+@media print{
+  body{background:#fff;font-size:10.4pt;line-height:1.42}
+  .bar{display:none}
+  .sheet{max-width:none;margin:0;padding:0;border:0;border-radius:0;box-shadow:none}
+  h1{font-size:24pt}
+  h2{font-size:8pt;margin-bottom:9px;padding-bottom:5px}
+  h3{font-size:11pt}
+  section{padding-top:13px}
+  .job{padding-bottom:10px;margin-bottom:10px}
+  .job li,.proj p,.skills dd{font-size:9.4pt}
+  .job ul{gap:3px}
+  .projects{gap:8px}
+  .proj{padding:9px 11px}
+  a{color:inherit}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <b>Abid Memon — Resume</b>
+    <div class="acts">
+      <a href="index.html" class="act">← Portfolio</a>
+      <button class="act fill" id="printBtn">Download PDF</button>
+    </div>
+  </div>
+</div>
+
+<main class="sheet">
+
+  <header class="head">
+    <div>
+      <h1>Abid Memon</h1>
+      <div class="role">IT Manager · Software Engineer · ERP &amp; Android</div>
+      <p>Computer Science graduate with 6+ years across software development, database management and IT infrastructure. Leads Odoo ERP implementations end to end and builds the Android and web systems that sit alongside them.</p>
+    </div>
+    <div class="contact">
+      <span><a href="mailto:abidmemon75@gmail.com">abidmemon75@gmail.com</a></span>
+      <span><a href="tel:+966541262419">+966 54 126 2419</a> (KSA)</span>
+      <span><a href="tel:+923342928699">+92 334 292 8699</a> (PK)</span>
+      <span>Al-Rehab, Jeddah, Saudi Arabia</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Profile</h2>
+    <p style="color:var(--ink-soft);font-size:.94rem">
+      Six years spanning both sides of IT: running the department — servers, Active Directory, network security, backups, vendor coordination and a helpdesk team — and building the software on top of it. Experience covers full Odoo ERP rollouts including customization, legacy data migration and staff training; native Android applications with offline data capture for field teams; and PHP/MySQL systems for hospitals, finance and learning platforms, with database architecture designed in MySQL and PostgreSQL and connected over REST APIs.
+    </p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job-top"><h3>IT Manager</h3><span class="when">March 2026 — Present</span></div>
+      <div class="org">Fazco Trading Company Limited · Jeddah, Saudi Arabia</div>
+      <ul>
+        <li>Leading a complete Odoo ERP implementation: module customization, data migration from legacy records, user training and post-launch support</li>
+        <li>Running full IT operations — network security, system backups, hardware and software procurement, and vendor coordination</li>
+        <li>Managing the helpdesk team and setting response standards for staff support across departments</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top"><h3>Manager IT / Software Developer</h3><span class="when">Jan 2022 — March 2026</span></div>
+      <div class="org">MGI · Pakistan</div>
+      <ul>
+        <li>Managed CMS, LMS and institutional finance software, and delivered IT lectures to students</li>
+        <li>Led a team of developers using agile practices, keeping project delivery on schedule</li>
+        <li>Designed database architecture in MySQL and PostgreSQL and integrated multiple systems over REST APIs</li>
+        <li>Handled server administration, backups and day-to-day IT operations for the institution</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top"><h3>IT DPO / Android Developer</h3><span class="when">July 2020 — Oct 2021</span></div>
+      <div class="org">PPHI · Pakistan</div>
+      <ul>
+        <li>Built the DMR (Data Management Reporting) Android application for field data collection with offline capture and background sync</li>
+        <li>Customized software to match organizational reporting needs and handled end-to-end IT troubleshooting</li>
+        <li>Supported field and office staff on data accuracy, devices and system access</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top"><h3>IT Incharge</h3><span class="when">2019 — 2020</span></div>
+      <div class="org">MIPRM · Pakistan</div>
+      <ul>
+        <li>Managed IT infrastructure, network security and server maintenance</li>
+        <li>Tuned hardware performance and introduced preventive maintenance schedules that reduced downtime</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top"><h3>IT Associate</h3><span class="when">2017 — 2019</span></div>
+      <div class="org">BDMCH · Pakistan</div>
+      <ul>
+        <li>Developed core modules of the hospital management system — patient records, billing and pharmacy</li>
+        <li>Handled daily IT operations, user support and system backups for hospital staff</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top"><h3>Android Developer</h3><span class="when">7 months</span></div>
+      <div class="org">Verge System · Pakistan</div>
+      <ul>
+        <li>Built native Android applications using Java, REST APIs, Firebase and SQLite</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Selected projects</h2>
+    <div class="projects">
+      <div class="proj">
+        <b>Odoo ERP Rollout</b>
+        <p>End-to-end Odoo implementation for a trading company in Jeddah: module customization, migration from legacy records, staff training and post-launch support.</p>
+        <em>Odoo · PostgreSQL · Data migration</em>
+      </div>
+      <div class="proj">
+        <b>DMR Field Reporting App</b>
+        <p>Android app for health field teams that captures data offline in low-connectivity areas and syncs to the server once a connection returns.</p>
+        <em>Java · SQLite · REST APIs</em>
+      </div>
+      <div class="proj">
+        <b>Hospital Management System</b>
+        <p>Core operational modules — patient records, billing and pharmacy inventory — used daily by clinical and administrative staff.</p>
+        <em>PHP · MySQL · Reporting</em>
+      </div>
+      <div class="proj">
+        <b>Learning Management Platform</b>
+        <p>Custom LMS and CMS for an educational institution: course delivery, student records and content management, with Moodle alongside custom modules.</p>
+        <em>Moodle · PHP · MySQL</em>
+      </div>
+      <div class="proj">
+        <b>Institutional Finance Software</b>
+        <p>Fees, accounts and reporting system integrated with the LMS and CMS so records stayed in sync across departments.</p>
+        <em>PHP · PostgreSQL · Integrations</em>
+      </div>
+      <div class="proj">
+        <b>IT Infrastructure &amp; Security</b>
+        <p>Active Directory administration, firewall and VPN configuration, server maintenance and tested backup/restore routines across offices.</p>
+        <em>Windows Server · AD · Backups</em>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Technical skills</h2>
+    <dl class="skills">
+      <dt>Languages</dt><dd>Java, PHP, SQL, JavaScript, HTML5, CSS3, XML, JSON</dd>
+      <dt>Mobile</dt><dd>Android Studio, Android SDK, Firebase, Retrofit, Glide, SQLite, offline sync</dd>
+      <dt>Web</dt><dd>PHP, WordPress, Bootstrap, jQuery, Ajax, REST APIs</dd>
+      <dt>Databases</dt><dd>MySQL, PostgreSQL, SQLite, phpMyAdmin, schema design, query optimization, stored procedures</dd>
+      <dt>ERP · CMS · LMS</dt><dd>Odoo (implementation, customization, migration), Moodle, custom LMS, WordPress</dd>
+      <dt>Infrastructure</dt><dd>Windows &amp; Linux Server, Active Directory, network security, VPN, backups, preventive maintenance</dd>
+      <dt>Tools</dt><dd>Git, GitHub, VS Code, Postman, Docker, Composer, Gradle</dd>
+      <dt>Management</dt><dd>Helpdesk management, user training, vendor coordination, team leadership, agile delivery</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="edu">
+      <div>
+        <b>BS (Hons) Computer Science</b>
+        <span>University of Sindh, Pakistan</span>
+        <i>CGPA 3.38 / 4.0</i>
+      </div>
+      <div>
+        <b>Pre-Engineering (Intermediate)</b>
+        <span>B.I.S.E Mirpur Khas</span>
+        <i></i>
+      </div>
+      <div>
+        <b>Science (Matriculation)</b>
+        <span>B.I.S.E Mirpur Khas</span>
+        <i></i>
+      </div>
+    </div>
+  </section>
+
+  <section class="two">
+    <div>
+      <h2>Languages</h2>
+      <span class="pill">English — fluent</span>
+      <span class="pill">Urdu / Hindi — native</span>
+      <span class="pill">Arabic — learning</span>
+    </div>
+    <div>
+      <h2>Interests</h2>
+      <span class="pill">AI &amp; machine learning</span>
+      <span class="pill">Travel</span>
+      <span class="pill">Continuous learning</span>
+    </div>
+  </section>
+
+  <div class="foot">
+    <span>Abid Memon · IT Manager &amp; Software Engineer · Jeddah, Saudi Arabia</span>
+    <span>References available on request</span>
+  </div>
+
+</main>
+
+<script>
+document.getElementById('printBtn').addEventListener('click', () => window.print());
+if (new URLSearchParams(location.search).get('print') === '1') {
+  addEventListener('load', () => setTimeout(() => window.print(), 400));
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Abid Memon — IT Manager &amp; Software Engineer, Jeddah</title>
+<meta name="description" content="Abid Memon — IT Manager and Software Engineer in Jeddah, Saudi Arabia. Odoo ERP implementation, Android development, database architecture and IT infrastructure.">
+<meta name="theme-color" content="#EEF1F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F151E" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Abid Memon — IT Manager &amp; Software Engineer">
+<meta property="og:description" content="Odoo ERP rollouts, Android apps, database architecture and IT operations — six years across six organisations.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════ TOKENS ══════════ */
+:root{
+  --paper:#EEF1F5;
+  --paper-raise:#FFFFFF;
+  --paper-sunk:#E4E8EE;
+  --ink:#0D1626;
+  --ink-soft:#46536B;
+  --ink-faint:#7A8699;
+  --line:rgba(13,22,38,.13);
+  --line-soft:rgba(13,22,38,.07);
+  --pine:#0B5D4E;
+  --pine-tint:rgba(11,93,78,.09);
+
+  --display:'Bricolage Grotesque',system-ui,sans-serif;
+  --text:'Inter Tight',system-ui,sans-serif;
+  --code:'IBM Plex Mono',ui-monospace,monospace;
+
+  --max:1160px;
+  --gut:clamp(20px,4vw,48px);
+  --rail:132px;
+
+  --band:#0D1626;
+  --band-line:rgba(255,255,255,.16);
+  --band-ink:#F4F7FA;
+  --band-soft:rgba(231,236,243,.68);
+  --band-mint:#5FCBB0;
+
+  color-scheme:light dark;
+}
+
+/* Device dark mode — real theme, not the browser's auto-invert */
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#0F151E;
+    --paper-raise:#161E2A;
+    --paper-sunk:#1B2431;
+    --ink:#E9EEF5;
+    --ink-soft:#A6B3C6;
+    --ink-faint:#7B899E;
+    --line:rgba(255,255,255,.13);
+    --line-soft:rgba(255,255,255,.07);
+    --pine:#3FBF9E;
+    --pine-tint:rgba(63,191,158,.13);
+    --band:#080D15;
+  }
+  ::selection{background:var(--pine);color:#06231C}
+  .topbar{background:rgba(15,21,30,.82)}
+  .topbar.pinned{background:rgba(15,21,30,.95)}
+  .act.fill{color:#06231C}
+  .act.fill:hover{background:#63D4B4;border-color:#63D4B4;color:#06231C}
+  .act:hover{background:var(--ink);color:var(--paper)}
+  .pcard:hover{border-color:rgba(255,255,255,.3);box-shadow:0 20px 34px -26px #000}
+  .scr{border-color:rgba(255,255,255,.14)}
+  .plate-tip{box-shadow:0 8px 22px -14px #000}
+  .sheetlike{filter:none}
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{background:var(--paper)}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--text);font-size:16.5px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+::selection{background:var(--pine);color:#fff}
+:focus-visible{outline:2px solid var(--pine);outline-offset:3px;border-radius:4px}
+.shell{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+
+/* ══════════ TYPE ══════════ */
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.04;letter-spacing:-.028em}
+h1{font-size:clamp(2.6rem,6.4vw,4.9rem);font-weight:700}
+h2{font-size:clamp(1.85rem,3.6vw,2.75rem)}
+h3{font-size:1.14rem;letter-spacing:-.012em}
+p{color:var(--ink-soft)}
+.lead{font-size:clamp(1.02rem,1.5vw,1.16rem);max-width:58ch;color:var(--ink-soft)}
+.tag{font-family:var(--code);font-size:.7rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint)}
+
+/* ══════════ SPEC-SHEET SHELL ══════════ */
+.block{padding:clamp(64px,8vw,104px) 0;border-top:1px solid var(--line)}
+.spec{display:grid;grid-template-columns:var(--rail) 1fr;gap:clamp(20px,4vw,52px);align-items:start}
+.spec-rail{position:sticky;top:88px}
+.spec-rail .idx{display:block;font-family:var(--code);font-size:.7rem;letter-spacing:.15em;color:var(--pine);margin-bottom:6px}
+.spec-rail .ttl{font-family:var(--code);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);line-height:1.5}
+.spec-head{max-width:62ch;margin-bottom:clamp(30px,4vw,44px)}
+.spec-head h2{margin-bottom:14px}
+
+/* ══════════ NAV ══════════ */
+.topbar{position:sticky;top:0;z-index:70;background:rgba(238,241,245,.82);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
+.topbar.pinned{border-bottom-color:var(--line);background:rgba(238,241,245,.94)}
+.topbar-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:62px}
+.sig{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:1.02rem}
+.sig i{width:9px;height:9px;background:var(--pine);border-radius:2px;flex:none;transform:rotate(45deg)}
+.menu{display:flex;align-items:center;gap:26px}
+.menu a{font-family:var(--code);font-size:.73rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);transition:color .2s}
+.menu a:hover{color:var(--pine)}
+.hamburger{display:none;background:none;border:1px solid var(--line);border-radius:7px;padding:9px 10px;cursor:pointer}
+.hamburger i{display:block;width:17px;height:1.5px;background:var(--ink);margin:3.5px 0}
+
+/* ══════════ BUTTONS ══════════ */
+.act{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:13px 21px;border-radius:8px;cursor:pointer;
+  font-family:var(--code);font-size:.75rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;
+  border:1px solid var(--ink);background:transparent;color:var(--ink);
+  transition:background .22s,color .22s,transform .18s,border-color .22s}
+.act:hover{transform:translateY(-2px);background:var(--ink);color:var(--paper)}
+.act.fill{background:var(--pine);border-color:var(--pine);color:#fff}
+.act.fill:hover{background:#094A3F;border-color:#094A3F;color:#fff}
+.act.ghost{border-color:var(--line);color:var(--ink-soft)}
+.act.ghost:hover{border-color:var(--ink);background:transparent;color:var(--ink)}
+.act.sm{padding:10px 15px;font-size:.7rem}
+.act[disabled]{opacity:.55;pointer-events:none}
+
+/* ══════════ HERO ══════════ */
+.hero{padding:clamp(48px,7vw,84px) 0 clamp(56px,7vw,88px)}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(28px,5vw,60px);align-items:center}
+.hero h1{margin:18px 0 22px}
+.hero h1 em{font-style:normal;color:var(--pine)}
+.hero-acts{display:flex;flex-wrap:wrap;gap:11px;margin-top:28px}
+.ticker{display:flex;flex-wrap:wrap;margin-top:34px;padding-top:22px;border-top:1px solid var(--line)}
+.ticker div{padding-right:30px;margin-right:30px;border-right:1px solid var(--line)}
+.ticker div:last-child{border:0;margin:0;padding:0}
+.ticker b{display:block;font-family:var(--display);font-weight:600;font-size:1.5rem;letter-spacing:-.02em}
+.ticker span{font-family:var(--code);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint)}
+
+.stack-wrap{position:relative;aspect-ratio:1/.94;width:100%;max-width:540px;margin-left:auto}
+.stack-wrap canvas{width:100%;height:100%;display:block;cursor:grab}
+.stack-wrap canvas.grabbing{cursor:grabbing}
+.plate-tip{position:absolute;top:0;left:0;pointer-events:none;opacity:0;
+  transform:translate(-50%,-50%);transition:opacity .2s;
+  background:var(--paper-raise);border:1px solid var(--line);border-radius:7px;
+  padding:7px 11px;white-space:nowrap;box-shadow:0 8px 22px -14px rgba(13,22,38,.5)}
+.plate-tip.show{opacity:1}
+.plate-tip b{display:block;font-family:var(--display);font-weight:600;font-size:.86rem}
+.plate-tip span{font-family:var(--code);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--pine)}
+.stack-note{position:absolute;bottom:2px;left:0;right:0;text-align:center;
+  font-family:var(--code);font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint)}
+.stack-fallback{position:absolute;inset:14%;border:1px solid var(--line);border-radius:10px;background:var(--paper-sunk)}
+
+/* ══════════ SERVICES ══════════ */
+.svc{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.svc article{background:var(--paper);padding:clamp(20px,2.6vw,28px);transition:background .25s}
+.svc article:hover{background:var(--paper-raise)}
+.svc h3{margin:12px 0 9px}
+.svc p{font-size:.94rem}
+.svc .no{font-family:var(--code);font-size:.68rem;letter-spacing:.14em;color:var(--pine)}
+.svc ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.svc li{font-family:var(--code);font-size:.66rem;color:var(--ink-soft);background:var(--paper-sunk);border-radius:4px;padding:4px 8px}
+
+/* ══════════ SKILLS MATRIX ══════════ */
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:22px}
+.legend span{display:inline-flex;align-items:center;gap:7px;font-family:var(--code);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.pip{display:inline-flex;gap:2.5px}
+.pip i{width:13px;height:4px;border-radius:1px;background:var(--line);display:block}
+.pip i.on{background:var(--pine)}
+.matrix{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper-raise)}
+.mrow{display:grid;grid-template-columns:172px 1fr;border-top:1px solid var(--line-soft)}
+.mrow:first-child{border-top:0}
+.mcat{padding:18px;background:var(--paper-sunk);display:flex;align-items:center;
+  font-family:var(--code);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.mitems{display:flex;flex-wrap:wrap;gap:7px;padding:16px 18px}
+.mitem{display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--line);border-radius:7px;padding:6px 10px;background:var(--paper);
+  font-size:.86rem;transition:border-color .2s,background .2s}
+.mitem:hover{border-color:var(--pine);background:var(--pine-tint)}
+
+/* ══════════ WORK ══════════ */
+.tabs{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
+.tab{font-family:var(--code);font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;
+  padding:9px 14px;border-radius:7px;border:1px solid var(--line);background:transparent;
+  color:var(--ink-soft);cursor:pointer;transition:.2s}
+.tab:hover{border-color:var(--ink-faint);color:var(--ink)}
+.tab[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pcard{background:var(--paper-raise);border:1px solid var(--line);border-radius:12px;
+  padding:14px 14px 20px;transition:transform .28s,box-shadow .28s,border-color .28s}
+.pcard:hover{transform:translateY(-4px);border-color:rgba(13,22,38,.24);box-shadow:0 20px 34px -26px rgba(13,22,38,.55)}
+.pmeta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:15px 0 7px}
+.pmeta .k{font-family:var(--code);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--pine)}
+.pmeta .y{font-family:var(--code);font-size:.62rem;color:var(--ink-faint)}
+.pcard h3{margin-bottom:7px}
+.pcard p{font-size:.89rem;line-height:1.52}
+.ptech{display:flex;flex-wrap:wrap;gap:5px;margin-top:13px}
+.ptech span{font-family:var(--code);font-size:.62rem;color:var(--ink-soft);background:var(--paper-sunk);border-radius:4px;padding:3px 7px}
+.plink{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-family:var(--code);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pine)}
+.plink:hover{gap:10px}
+
+/* mini UI previews */
+.scr{position:relative;aspect-ratio:16/10;border-radius:8px;overflow:hidden;background:#0D1626;border:1px solid rgba(13,22,38,.2)}
+.scr-bar{height:19px;display:flex;align-items:center;gap:4px;padding:0 8px;background:rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.08)}
+.d{width:4.5px;height:4.5px;border-radius:50%;background:rgba(255,255,255,.22);flex:none;display:block}
+.d.g{background:#3FBF9E}.d.a{background:#D9A441}.d.r{background:#D96A63}
+.addr{flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.10);margin-left:5px;display:block}
+.scr-in{padding:8px;height:calc(100% - 19px);display:flex;gap:6px}
+.cl{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0}
+.cl.rail{width:24%;flex:none}
+.ln{height:5.5px;border-radius:3px;background:rgba(255,255,255,.11);display:block}
+.ln.s{width:52%}.ln.m{width:74%}.ln.l{width:100%}.ln.tall{height:19px}
+.ln.hi{background:linear-gradient(90deg,#3FBF9E,rgba(63,191,158,.22))}
+.ln.wm{background:linear-gradient(90deg,#D9A441,rgba(217,164,65,.22))}
+.gr{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;flex:1}
+.gr.two{grid-template-columns:repeat(2,1fr)}
+.bx{border-radius:5px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);display:block}
+.bx.g{background:rgba(63,191,158,.14);border-color:rgba(63,191,158,.3)}
+.bx.a{background:rgba(217,164,65,.14);border-color:rgba(217,164,65,.3)}
+.chart{display:flex;align-items:flex-end;gap:4px;flex:1}
+.chart i{flex:1;border-radius:2px 2px 0 0;background:linear-gradient(180deg,#3FBF9E,rgba(63,191,158,.15));display:block}
+.tick{display:flex;align-items:center;gap:3px;flex:1}
+.tick i{flex:1;border-radius:1px;display:block}
+.tick i.u{background:#3FBF9E}.tick i.d{background:#D96A63}
+.log{padding:8px 9px;font-family:var(--code);font-size:.5rem;line-height:1.95;color:#94A3B8;height:100%;overflow:hidden}
+.log .g{color:#3FBF9E}.log .a{color:#D9A441}.log .r{color:#D96A63}.log .w{color:#D5DDE8}
+.dev{width:43%;margin:0 auto;height:100%;border-radius:10px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);padding:7px 6px;display:flex;flex-direction:column;gap:5px}
+.nub{width:26%;height:3px;border-radius:3px;background:rgba(255,255,255,.22);margin:0 auto 3px;display:block}
+.pg{background:#EEF1F5;border-radius:4px;flex:1;padding:8px 9px;display:flex;flex-direction:column;gap:4px}
+.pg .ln{background:rgba(13,22,38,.16)}
+.pg .ln.wm{background:linear-gradient(90deg,#8A6620,rgba(138,102,32,.25))}
+.pg .chart i{background:linear-gradient(180deg,#0B5D4E,rgba(11,93,78,.18))}
+.rule{position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px) 0 0/100% 25%;pointer-events:none;display:block}
+.stamp{position:absolute;top:25px;right:7px;font-family:var(--code);font-size:.5rem;letter-spacing:.1em;color:#D9A441;border:1px solid rgba(217,164,65,.35);border-radius:3px;padding:2px 5px}
+
+
+/* ══════════ PROCESS PIPELINE ══════════ */
+.flow-top{display:flex;flex-wrap:wrap;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:11px;overflow:hidden;margin-bottom:clamp(28px,4vw,40px)}
+.flow-top div{flex:1 1 170px;background:var(--paper-raise);padding:15px 17px}
+.flow-top dt{font-family:var(--code);font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:5px}
+.flow-top dd{font-family:var(--display);font-weight:600;font-size:1.02rem;letter-spacing:-.015em}
+
+.flow{position:relative}
+.stage{display:grid;grid-template-columns:38px 1fr;gap:0 18px;padding-bottom:20px}
+.stage:last-child{padding-bottom:0}
+.node{position:relative;display:flex;justify-content:center;padding-top:20px}
+.node b{width:13px;height:13px;border-radius:50%;background:var(--paper);border:2px solid var(--line);
+  z-index:2;flex:none;transition:background .45s,border-color .45s,box-shadow .45s}
+.stage.lit .node b{background:var(--pine);border-color:var(--pine);box-shadow:0 0 0 5px var(--pine-tint)}
+.node::after{content:"";position:absolute;top:31px;bottom:-20px;left:50%;width:2px;background:var(--line);
+  transform:translateX(-50%) scaleY(0);transform-origin:top;transition:transform .75s .12s cubic-bezier(.3,.8,.4,1)}
+.stage.lit .node::after{transform:translateX(-50%) scaleY(1)}
+.stage:last-child .node::after{display:none}
+
+.stage-card{border:1px solid var(--line);border-radius:12px;background:var(--paper-raise);
+  padding:clamp(16px,2.4vw,22px);transition:border-color .3s,transform .5s .05s,opacity .5s .05s;
+  opacity:0;transform:translateY(14px)}
+.stage.lit .stage-card{opacity:1;transform:none}
+.stage-card:hover{border-color:rgba(13,22,38,.26)}
+@media (prefers-color-scheme: dark){.stage-card:hover{border-color:rgba(255,255,255,.28)}}
+.stage-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;margin-bottom:9px}
+.stage-top .sn{font-family:var(--code);font-size:.68rem;letter-spacing:.14em;color:var(--pine)}
+.stage-top h3{flex:1 1 auto;min-width:0}
+.dur{font-family:var(--code);font-size:.63rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-faint);
+  border:1px solid var(--line);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.stage-card p{font-size:.92rem}
+.gives{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:13px;padding-top:13px;border-top:1px solid var(--line-soft)}
+.gives em{font-style:normal;font-family:var(--code);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-right:2px}
+.gives span{font-family:var(--code);font-size:.65rem;color:var(--ink-soft);background:var(--paper-sunk);border-radius:5px;padding:4px 9px}
+.gate{display:inline-flex;align-items:center;gap:7px;margin-top:12px;
+  font-family:var(--code);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--pine);
+  background:var(--pine-tint);border:1px solid var(--pine-tint);border-radius:6px;padding:6px 10px}
+.gate::before{content:"";width:6px;height:6px;background:var(--pine);border-radius:50%;flex:none}
+.after-note{margin-top:22px;border:1px dashed var(--line);border-radius:11px;padding:16px 18px;background:transparent}
+.after-note b{font-family:var(--display);font-weight:600;font-size:.98rem;display:block;margin-bottom:4px}
+.after-note p{font-size:.9rem}
+
+/* ══════════ ABOUT ══════════ */
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(24px,4vw,48px);align-items:start}
+.about p + p{margin-top:15px}
+.portrait{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  background:var(--paper-sunk);margin-bottom:16px}
+.portrait img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;display:block}
+.portrait figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 13px;
+  background:linear-gradient(transparent,rgba(13,22,38,.82));color:#F4F7FA}
+.portrait b{display:block;font-family:var(--display);font-weight:600;font-size:1rem;letter-spacing:-.01em}
+.portrait span{font-family:var(--code);font-size:.63rem;letter-spacing:.11em;text-transform:uppercase;color:rgba(244,247,250,.72)}
+.portrait picture{display:block}
+.facts{border:1px solid var(--line);border-radius:12px;background:var(--paper-raise);padding:8px 20px}
+.fact{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line-soft);font-size:.92rem}
+.fact:last-child{border:0}
+.fact dt{font-family:var(--code);font-size:.66rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint);flex:none;padding-top:2px}
+.fact dd{text-align:right}
+.creds{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+.creds span{font-family:var(--code);font-size:.66rem;color:var(--ink-soft);border:1px solid var(--line);border-radius:6px;padding:6px 10px;background:var(--paper-raise)}
+
+.resume{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;
+  border:1px solid var(--line);border-radius:12px;padding:clamp(20px,3vw,30px);background:var(--paper-raise);margin-top:26px}
+.resume h3{margin-bottom:6px}
+.resume p{font-size:.92rem;max-width:48ch}
+.resume-acts{display:flex;flex-wrap:wrap;gap:10px}
+
+/* ══════════ BRIEF FORM ══════════ */
+.brief{background:var(--band);color:#E7ECF3;border-top:1px solid var(--band)}
+.brief .tag,.brief .spec-rail .ttl{color:rgba(231,236,243,.55)}
+.brief .spec-rail .idx{color:#5FCBB0}
+.brief h2,.brief h3{color:#F4F7FA}
+.brief p{color:rgba(231,236,243,.68)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.wide{grid-column:1/-1}
+.field label{font-family:var(--code);font-size:.68rem;letter-spacing:.11em;text-transform:uppercase;color:rgba(231,236,243,.6)}
+.field label .req{color:#5FCBB0}
+.field input,.field select,.field textarea{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:8px;
+  padding:13px 14px;color:#F4F7FA;font-size:.95rem;transition:border-color .2s,background .2s;width:100%}
+.field textarea{resize:vertical;min-height:132px;line-height:1.55}
+.field input::placeholder,.field textarea::placeholder{color:rgba(231,236,243,.34)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:#5FCBB0;background:rgba(255,255,255,.08)}
+.field select{appearance:none;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,rgba(231,236,243,.6) 50%),linear-gradient(135deg,rgba(231,236,243,.6) 50%,transparent 50%);
+  background-position:calc(100% - 19px) 21px,calc(100% - 14px) 21px;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+.field select option{background:#0D1626;color:#F4F7FA}
+.field .err{font-family:var(--code);font-size:.66rem;letter-spacing:.05em;color:#FF9A8F;display:none;line-height:1.5}
+.field.bad input,.field.bad select,.field.bad textarea{border-color:#FF9A8F}
+.field.bad .err{display:block}
+.count{font-family:var(--code);font-size:.63rem;color:rgba(231,236,243,.42);text-align:right}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-top:4px}
+.brief .act{border-color:rgba(255,255,255,.28);color:#F4F7FA}
+.brief .act:hover{background:#F4F7FA;color:#0D1626}
+.brief .act.fill{background:var(--band-mint);border-color:var(--band-mint);color:#08211B}
+.brief .act.fill:hover{background:#7DDCC4;color:#08211B}
+.privacy{font-family:var(--code);font-size:.64rem;letter-spacing:.04em;color:rgba(231,236,243,.42);max-width:38ch;line-height:1.7}
+.formnote{grid-column:1/-1;border-radius:9px;padding:14px 16px;font-size:.9rem;display:none;
+  border:1px solid rgba(95,203,176,.4);background:rgba(95,203,176,.1);color:#BFF0E2}
+.formnote.show{display:block}
+.formnote.bad{border-color:rgba(255,154,143,.42);background:rgba(255,154,143,.1);color:#FFC7C0}
+.direct{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.direct a{display:inline-flex;align-items:center;gap:8px;font-family:var(--code);font-size:.7rem;
+  letter-spacing:.08em;text-transform:uppercase;color:rgba(231,236,243,.75);
+  border:1px solid rgba(255,255,255,.16);border-radius:7px;padding:10px 14px;transition:.2s}
+.direct a:hover{border-color:#5FCBB0;color:#fff}
+
+.foot{padding:26px 0 40px;border-top:1px solid var(--line)}
+.foot-in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;
+  font-family:var(--code);font-size:.68rem;letter-spacing:.05em;color:var(--ink-faint)}
+
+.up{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1)}
+.up.seen{opacity:1;transform:none}
+
+
+/* ══════════ EXPERIENCE TIMELINE ══════════ */
+.tl{position:relative;padding-left:28px}
+.tl::before{content:"";position:absolute;left:6px;top:9px;bottom:9px;width:2px;background:var(--line)}
+.job{position:relative;padding-bottom:28px}
+.job:last-child{padding-bottom:0}
+.job::before{content:"";position:absolute;left:-28px;top:5px;width:14px;height:14px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--line);box-sizing:border-box}
+.job.now::before{background:var(--pine);border-color:var(--pine);box-shadow:0 0 0 5px var(--pine-tint)}
+.job .when{font-family:var(--code);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--pine);margin-bottom:6px}
+.job h3{margin-bottom:5px}
+.job .where{font-family:var(--code);font-size:.7rem;letter-spacing:.04em;color:var(--ink-faint);margin-bottom:12px}
+.job ul{list-style:none;display:grid;gap:8px}
+.job li{position:relative;padding-left:18px;font-size:.92rem;line-height:1.55;color:var(--ink-soft)}
+.job li::before{content:"";position:absolute;left:0;top:.66em;width:7px;height:1.5px;border-radius:1px;background:var(--pine);opacity:.75}
+
+/* portrait fallback when no photo file is present */
+.portrait .mono-fb{display:none}
+.portrait.noimg{aspect-ratio:1;display:grid;place-items:center;background:var(--paper-sunk)}
+.portrait.noimg .mono-fb{display:block;font-family:var(--display);font-weight:700;font-size:3.6rem;
+  letter-spacing:-.04em;color:var(--pine);opacity:.5;line-height:1}
+
+/* ══════════ RESPONSIVE ══════════ */
+@media(max-width:1000px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .stack-wrap{margin:0 auto;max-width:440px}
+  .about{grid-template-columns:1fr}
+  .projects{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:860px){
+  .spec{grid-template-columns:1fr;gap:16px}
+  .spec-rail{position:static;display:flex;align-items:baseline;gap:10px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+  .spec-rail .idx{margin-bottom:0}
+  .menu{position:fixed;left:0;right:0;top:62px;flex-direction:column;align-items:stretch;gap:0;
+    background:var(--paper);border-bottom:1px solid var(--line);padding:4px var(--gut) 18px;display:none}
+  .menu.open{display:flex}
+  .menu a{padding:14px 0;border-bottom:1px solid var(--line-soft);font-size:.8rem}
+  .hamburger{display:block}
+  .topbar .act{display:none}
+}
+@media(max-width:700px){
+  .svc{grid-template-columns:1fr}
+  .stage{grid-template-columns:28px 1fr;gap:0 13px}
+  .node{padding-top:18px}
+  .flow-top div{flex:1 1 100%}
+  .hero-acts{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .hero-acts a:last-child{grid-column:1/-1}
+  .ticker{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .ticker div{padding-right:0;margin-right:0;border-right:0}
+  .ticker div + div{border-left:1px solid var(--line);padding-left:12px}
+  .resume-acts{width:100%}
+  .resume-acts a{flex:1 1 140px}
+  .projects{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .mrow{grid-template-columns:1fr}
+  .mcat{padding:14px 16px 8px;background:transparent;border-bottom:1px solid var(--line-soft)}
+  .mitems{padding:12px 16px 16px}
+  .ticker div{padding-right:20px;margin-right:20px}
+  .ticker b{font-size:1.28rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .up{opacity:1;transform:none}
+  .stage-card{opacity:1;transform:none}
+  .node::after{transform:translateX(-50%) scaleY(1)}
+}
+@media print{.topbar,.stack-wrap,.brief,.foot{display:none}}
+</style>
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <div class="shell topbar-in">
+    <a class="sig" href="#top"><i></i>Abid Memon</a>
+    <nav class="menu" id="menu">
+      <a href="#services">Services</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="#brief">Hire me</a>
+    </nav>
+    <a href="#brief" class="act fill sm">Start a project</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="shell hero-grid">
+    <div>
+      <span class="tag">IT Manager &amp; Software Engineer · Jeddah, Saudi Arabia</span>
+      <h1>I keep systems running, <em>and build the software on them.</em></h1>
+      <p class="lead">Odoo ERP rollouts, offline-first Android apps, hospital and institutional databases, and the servers and helpdesk behind them — six years across six organisations, from hands-on support to running the whole IT department.</p>
+      <div class="hero-acts">
+        <a href="#brief" class="act fill">Start a project</a>
+        <a href="resume.html" class="act" target="_blank" rel="noopener">Download resume</a>
+        <a href="#work" class="act ghost">See the work</a>
+      </div>
+      <div class="ticker">
+        <div><b>6+</b><span>Years in IT</span></div>
+        <div><b>6</b><span>Organisations</span></div>
+        <div><b>3.38</b><span>CGPA / 4.0</span></div>
+      </div>
+    </div>
+    <div class="stack-wrap" id="stackWrap">
+      <div class="stack-fallback" id="stackFallback"></div>
+      <canvas id="stackCanvas" aria-label="Interactive diagram of the layers I build"></canvas>
+      <div class="plate-tip" id="plateTip"><b></b><span></span></div>
+      <p class="stack-note">Four layers, one owner — hover a layer</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="services">
+  <div class="shell spec">
+    <div class="spec-rail"><span class="idx">01</span><span class="ttl">What I<br>build</span></div>
+    <div>
+      <div class="spec-head up">
+        <h2>Four kinds of work, one point of ownership</h2>
+        <p class="lead">Most organisations already have the systems — an ERP half configured, a database nobody documented, a network held together by habit. My job is to take the whole thing end to end: configure it, code around it, migrate the data, train the staff and keep it up.</p>
+      </div>
+      <div class="svc up">
+        <article>
+          <span class="no">S—01</span>
+          <h3>ERP implementation</h3>
+          <p>Complete Odoo rollouts — module customization, data migration from legacy records, user training and post-launch support until the team actually works inside it.</p>
+          <ul><li>Odoo</li><li>PostgreSQL</li><li>Data migration</li><li>User training</li></ul>
+        </article>
+        <article>
+          <span class="no">S—02</span>
+          <h3>Android development</h3>
+          <p>Native Java apps built for the field: offline data capture, background sync when the connection returns, Firebase auth and messaging, REST integration with your server.</p>
+          <ul><li>Java</li><li>Android SDK</li><li>Firebase</li><li>SQLite</li></ul>
+        </article>
+        <article>
+          <span class="no">S—03</span>
+          <h3>Web systems &amp; databases</h3>
+          <p>Hospital, finance and learning systems in PHP and MySQL — with the schema designed first, roles and permissions built in, and REST APIs connecting the pieces.</p>
+          <ul><li>PHP</li><li>MySQL</li><li>PostgreSQL</li><li>REST APIs</li></ul>
+        </article>
+        <article>
+          <span class="no">S—04</span>
+          <h3>IT operations</h3>
+          <p>Servers, Active Directory, network security, backup routines, vendor coordination and a helpdesk that answers — the unglamorous layer that decides whether anything else works.</p>
+          <ul><li>Windows / Linux Server</li><li>Active Directory</li><li>Backups</li><li>Helpdesk</li></ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="skills">
+  <div class="shell spec">
+    <div class="spec-rail"><span class="idx">02</span><span class="ttl">Skills<br>matrix</span></div>
+    <div>
+      <div class="spec-head up">
+        <h2>Everything I work with</h2>
+        <p class="lead">Grouped by where it sits in a build. The marks are honest: three means I ship production work in it, one means I can read it and get useful work done.</p>
+      </div>
+      <div class="legend up">
+        <span><i class="pip"><i class="on"></i><i class="on"></i><i class="on"></i></i> Production</span>
+        <span><i class="pip"><i class="on"></i><i class="on"></i><i></i></i> Working</span>
+        <span><i class="pip"><i class="on"></i><i></i><i></i></i> Familiar</span>
+      </div>
+      <div class="matrix up" id="matrix"></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="work">
+  <div class="shell spec">
+    <div class="spec-rail"><span class="idx">03</span><span class="ttl">Selected<br>work</span></div>
+    <div>
+      <div class="spec-head up">
+        <h2>Systems built for real organisations</h2>
+        <p class="lead">Hospitals, health programmes, institutions and trading companies. Filter by the kind of work you need — each preview is the real screen layout.</p>
+      </div>
+      <div class="tabs up" id="tabs"></div>
+      <div class="projects" id="projects"></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="process">
+  <div class="shell spec">
+    <div class="spec-rail"><span class="idx">04</span><span class="ttl">How a<br>build runs</span></div>
+    <div>
+      <div class="spec-head up">
+        <h2>From your first message to a system your team actually uses</h2>
+        <p class="lead">Six stages, each ending in something you can open and check. You approve the scope and the price before any configuration or code starts, and you own everything at the end.</p>
+      </div>
+
+      <dl class="flow-top up">
+        <div><dt>Typical timeline</dt><dd>2 – 8 weeks</dd></div>
+        <div><dt>Pricing</dt><dd>Fixed, agreed upfront</dd></div>
+        <div><dt>Payment</dt><dd>Split across milestones</dd></div>
+        <div><dt>You receive</dt><dd>Source code &amp; credentials</dd></div>
+      </dl>
+
+      <div class="flow" id="flow">
+        <div class="stage">
+          <div class="node"><b></b></div>
+          <div class="stage-card">
+            <div class="stage-top"><span class="sn">STAGE 01</span><h3>Understand the problem</h3><span class="dur">Day 1</span></div>
+            <p>A call or a long message. I ask who uses the system, what breaks today, and what "finished" looks like to you. No code, no pitch — I'm only working out whether I can actually solve it.</p>
+            <div class="gives"><em>You get</em><span>Honest yes or no</span><span>Rough budget range</span></div>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="node"><b></b></div>
+          <div class="stage-card">
+            <div class="stage-top"><span class="sn">STAGE 02</span><h3>Scope, schema and price</h3><span class="dur">2 – 4 days</span></div>
+            <p>I map your process, write the database schema or the ERP module list, name every screen and user role, and mark what is in scope and what is not. Then a fixed price against that document. This is where most projects quietly go wrong, so it happens before anything else.</p>
+            <div class="gives"><em>You get</em><span>Written scope</span><span>Schema / module map</span><span>Role matrix</span><span>Fixed quote</span></div>
+            <span class="gate">Your approval — nothing starts until you sign this off</span>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="node"><b></b></div>
+          <div class="stage-card">
+            <div class="stage-top"><span class="sn">STAGE 03</span><h3>Data layer and configuration</h3><span class="dur">Week 1 – 3</span></div>
+            <p>Tables, relationships, login, roles and permissions come first — or, on an ERP job, the module configuration and the migration of your legacy records. You get a staging environment on day one of this stage and watch it fill up.</p>
+            <div class="gives"><em>You get</em><span>Staging environment</span><span>Migrated data</span><span>Test accounts</span></div>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="node"><b></b></div>
+          <div class="stage-card">
+            <div class="stage-top"><span class="sn">STAGE 04</span><h3>The interface people use</h3><span class="dur">Week 2 – 5</span></div>
+            <p>The staff-facing or public side, built mobile-first: forms, dashboards, reports, approvals, the Android app for field teams — whatever the scope named. Integrations over REST get wired in here too.</p>
+            <div class="gives"><em>You get</em><span>Full interface</span><span>Integrations connected</span><span>Reports running</span></div>
+            <span class="gate">Your review — change requests inside the agreed scope are free</span>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="node"><b></b></div>
+          <div class="stage-card">
+            <div class="stage-top"><span class="sn">STAGE 05</span><h3>Testing, UAT and hardening</h3><span class="dur">3 – 6 days</span></div>
+            <p>Real data, not sample rows. Your people run their own daily tasks through it while I test every role, break my own forms, check it on phones, and close the security basics: prepared statements, hashed passwords, access control, backups and error handling.</p>
+            <div class="gives"><em>You get</em><span>UAT with your team</span><span>Mobile checked</span><span>Security pass</span></div>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="node"><b></b></div>
+          <div class="stage-card">
+            <div class="stage-top"><span class="sn">STAGE 06</span><h3>Deploy, train and hand over</h3><span class="dur">2 – 4 days</span></div>
+            <p>Live on your server and your domain, with SSL, scheduled backups and email set up. Then hands-on training for the staff who use it daily, a walkthrough recording and a short written guide — so the system runs without needing me.</p>
+            <div class="gives"><em>You get</em><span>Live system</span><span>Staff training</span><span>All credentials</span><span>Walkthrough guide</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="after-note up">
+        <b>After handover</b>
+        <p>Anything that doesn't work as described in the scope gets fixed free for 30 days. New features are quoted separately, and a monthly retainer is available if you want ongoing changes, support and system administration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="experience">
+  <div class="shell spec">
+    <div class="spec-rail"><span class="idx">05</span><span class="ttl">Career<br>history</span></div>
+    <div>
+      <div class="spec-head up">
+        <h2>Where I've worked</h2>
+        <p class="lead">Newest first — each role added a layer, from hands-on support to running the department.</p>
+      </div>
+      <div class="tl">
+        <div class="job now up">
+          <div class="when">March 2026 — Present</div>
+          <h3>IT Manager</h3>
+          <div class="where">Fazco Trading Company Limited · Jeddah, KSA</div>
+          <ul>
+            <li>Leading a complete Odoo ERP implementation: customization, data migration, user training and post-launch support</li>
+            <li>Running full IT operations — network security, system backups, vendor coordination and the helpdesk team</li>
+          </ul>
+        </div>
+        <div class="job up">
+          <div class="when">Jan 2022 — March 2026</div>
+          <h3>Manager IT / Software Developer</h3>
+          <div class="where">MGI · Pakistan</div>
+          <ul>
+            <li>Managed CMS, LMS and finance software for institutional use, and delivered IT lectures</li>
+            <li>Led a team of developers with agile practices, keeping project delivery on schedule</li>
+            <li>Designed database architecture in MySQL and PostgreSQL and connected multiple systems over REST APIs</li>
+          </ul>
+        </div>
+        <div class="job up">
+          <div class="when">July 2020 — Oct 2021</div>
+          <h3>IT DPO / Android Developer</h3>
+          <div class="where">PPHI · Pakistan</div>
+          <ul>
+            <li>Built the DMR (Data Management Reporting) application for field data collection with offline support</li>
+            <li>Customized software to match organizational needs and handled end-to-end IT troubleshooting</li>
+          </ul>
+        </div>
+        <div class="job up">
+          <div class="when">2019 — 2020</div>
+          <h3>IT Incharge</h3>
+          <div class="where">MIPRM · Pakistan</div>
+          <ul>
+            <li>Managed IT infrastructure, network security and server maintenance</li>
+            <li>Tuned hardware performance and put preventive maintenance schedules in place</li>
+          </ul>
+        </div>
+        <div class="job up">
+          <div class="when">2017 — 2019</div>
+          <h3>IT Associate</h3>
+          <div class="where">BDMCH · Pakistan</div>
+          <ul>
+            <li>Developed core modules of the hospital management system — patient records, billing and pharmacy</li>
+            <li>Handled daily IT operations, user support and system backups for hospital staff</li>
+          </ul>
+        </div>
+        <div class="job up">
+          <div class="when">7 months</div>
+          <h3>Android Developer</h3>
+          <div class="where">Verge System · Pakistan</div>
+          <ul>
+            <li>Built Android applications using Java, REST APIs, Firebase and SQLite</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="about">
+  <div class="shell spec">
+    <div class="spec-rail"><span class="idx">06</span><span class="ttl">About<br>&amp; resume</span></div>
+    <div>
+      <div class="about">
+        <div class="up">
+          <h2 style="margin-bottom:16px">Infrastructure by day, code by night</h2>
+          <p>I'm Abid Memon — IT Manager at Fazco Trading Company Limited in Jeddah, and a Computer Science graduate with six years across software development, database management and IT infrastructure.</p>
+          <p>The department side is Odoo, servers, Active Directory, backups and a helpdesk team. The engineering side is everything around it — the PHP system that holds the records, the schema underneath it, the Android app the field team carries, and the REST layer that keeps them in sync.</p>
+          <p>That combination is the point. You get one person who can design the schema, configure the ERP, write the app and keep the servers up — instead of three contractors blaming each other.</p>
+          <div class="creds">
+            <span>BS (Hons) Computer Science</span><span>Odoo ERP implementation</span><span>Android · Java</span>
+            <span>MySQL / PostgreSQL</span><span>Active Directory</span><span>Network security</span>
+          </div>
+        </div>
+        <div>
+          <figure class="portrait up">
+            <img src="abid-photo.jpg" width="900" height="900" loading="lazy" decoding="async"
+                 alt="Portrait of Abid Memon" onerror="this.closest('.portrait').classList.add('noimg');this.remove()">
+            <span class="mono-fb" aria-hidden="true">AM</span>
+            <figcaption><b>Abid Memon</b><span>Jeddah, Saudi Arabia</span></figcaption>
+          </figure>
+        <div class="facts up">
+          <dl>
+            <div class="fact"><dt>Based in</dt><dd>Al-Rehab, Jeddah<br>Saudi Arabia</dd></div>
+            <div class="fact"><dt>Current role</dt><dd>IT Manager<br>Fazco Trading Company</dd></div>
+            <div class="fact"><dt>Education</dt><dd>BS (Hons) Computer Science<br>University of Sindh — CGPA 3.38</dd></div>
+            <div class="fact"><dt>Languages</dt><dd>English (fluent)<br>Urdu / Hindi (native)<br>Arabic (learning)</dd></div>
+            <div class="fact"><dt>Interests</dt><dd>AI &amp; machine learning<br>Travel, continuous learning</dd></div>
+            <div class="fact"><dt>Open to</dt><dd>Freelance projects<br>Full-time roles in KSA</dd></div>
+          </dl>
+        </div>
+        </div>
+      </div>
+
+      <div class="resume up">
+        <div>
+          <h3>Full resume</h3>
+          <p>Work history, project detail and education on one page. Opens in a new tab — the download button sends it straight to your printer dialog, where you can choose "Save as PDF".</p>
+        </div>
+        <div class="resume-acts">
+          <a href="resume.html" class="act fill" target="_blank" rel="noopener">Open resume</a>
+          <a href="resume.html?print=1" class="act" target="_blank" rel="noopener">Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block brief" id="brief">
+  <div class="shell spec">
+    <div class="spec-rail"><span class="idx">07</span><span class="ttl">Project<br>brief</span></div>
+    <div>
+      <div class="spec-head up">
+        <h2>Tell me what you want built</h2>
+        <p class="lead">Fill this in and you'll get back a scope, a timeline and a fixed price — usually within one working day. Write in English or Urdu, whichever is easier.</p>
+      </div>
+
+      <form class="form-grid up" id="briefForm" novalidate>
+        <div class="field">
+          <label for="f-name">Your name <span class="req">*</span></label>
+          <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Ahmed Al-Harbi">
+          <span class="err">Enter your name so I know who I'm replying to.</span>
+        </div>
+        <div class="field">
+          <label for="f-email">Email <span class="req">*</span></label>
+          <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@company.com">
+          <span class="err">Enter a valid email address — that's where the quote goes.</span>
+        </div>
+        <div class="field">
+          <label for="f-phone">WhatsApp or phone</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+966 5X XXX XXXX">
+          <span class="err"></span>
+        </div>
+        <div class="field">
+          <label for="f-company">Company <span style="opacity:.5">(optional)</span></label>
+          <input id="f-company" name="company" type="text" autocomplete="organization" placeholder="Company or project name">
+          <span class="err"></span>
+        </div>
+        <div class="field">
+          <label for="f-type">What do you need? <span class="req">*</span></label>
+          <select id="f-type" name="project_type">
+            <option value="">Choose one</option>
+            <option>Odoo ERP implementation or customization</option>
+            <option>Android application</option>
+            <option>Website or web platform</option>
+            <option>Hospital or clinic management system</option>
+            <option>LMS / CMS for an institution</option>
+            <option>Database design, migration or reporting</option>
+            <option>IT infrastructure, network or server setup</option>
+            <option>Fix or upgrade an existing system</option>
+            <option>Support &amp; maintenance retainer</option>
+            <option>Something else</option>
+          </select>
+          <span class="err">Pick the closest option — we can refine it later.</span>
+        </div>
+        <div class="field">
+          <label for="f-budget">Budget range</label>
+          <select id="f-budget" name="budget">
+            <option value="">Not sure yet</option>
+            <option>Under SAR 2,000</option>
+            <option>SAR 2,000 – 5,000</option>
+            <option>SAR 5,000 – 15,000</option>
+            <option>SAR 15,000 – 40,000</option>
+            <option>Above SAR 40,000</option>
+            <option>Monthly retainer</option>
+          </select>
+          <span class="err"></span>
+        </div>
+        <div class="field">
+          <label for="f-timeline">When do you need it live?</label>
+          <select id="f-timeline" name="timeline">
+            <option value="">Flexible</option>
+            <option>Urgent — within 2 weeks</option>
+            <option>Within 1 month</option>
+            <option>1 – 3 months</option>
+            <option>Still planning</option>
+          </select>
+          <span class="err"></span>
+        </div>
+        <div class="field">
+          <label for="f-found">How did you find me?</label>
+          <select id="f-found" name="source">
+            <option value="">Prefer not to say</option>
+            <option>LinkedIn</option>
+            <option>Referral from someone</option>
+            <option>Google search</option>
+            <option>Freelance platform</option>
+            <option>Other</option>
+          </select>
+          <span class="err"></span>
+        </div>
+        <div class="field wide">
+          <label for="f-msg">Describe the project <span class="req">*</span></label>
+          <textarea id="f-msg" name="message" maxlength="2000" placeholder="What should the system do, who will use it, and what's wrong with how it works today? Even a rough paragraph is enough to start."></textarea>
+          <div class="count"><span id="charCount">0</span> / 2000</div>
+          <span class="err">Give me at least a couple of sentences about the project.</span>
+        </div>
+
+        <input type="text" name="website" id="f-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
+
+        <div class="formnote" id="formNote" role="status" aria-live="polite"></div>
+
+        <div class="form-foot">
+          <p class="privacy">Your details are used only to reply to this enquiry. Nothing is shared or added to a mailing list.</p>
+          <button type="submit" class="act fill" id="submitBtn">Send project brief</button>
+        </div>
+      </form>
+
+      <div class="direct up">
+        <a href="mailto:abidmemon75@gmail.com" id="mailLink">abidmemon75@gmail.com</a>
+        <a href="https://wa.me/966541262419" id="waLink" target="_blank" rel="noopener">WhatsApp +966 54 126 2419</a>
+        <a href="tel:+923342928699">Pakistan +92 334 292 8699</a>
+        <a href="resume.html" target="_blank" rel="noopener">Resume</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot-in">
+    <span>© <span id="year">2026</span> Abid Memon — IT Manager &amp; Software Engineer, Jeddah</span>
+    <span>References available on request</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ═══ 1. SKILLS MATRIX (3 = production, 2 = working, 1 = familiar) ═══ */
+const SKILLS = [
+  { cat:'Languages', items:[['Java',3],['PHP',3],['SQL',3],['JavaScript',2],['HTML5 / CSS3',3],['XML',2],['JSON',3]]},
+  { cat:'Mobile', items:[['Android Studio',3],['Android SDK',3],['Java (Android)',3],['Firebase',3],['Retrofit',3],['SQLite',3],['Glide',2],['Offline sync',3]]},
+  { cat:'Web', items:[['PHP',3],['WordPress',3],['Bootstrap',3],['jQuery',2],['Ajax',2],['REST APIs',3],['Responsive layouts',2]]},
+  { cat:'Databases', items:[['MySQL',3],['PostgreSQL',3],['SQLite',3],['phpMyAdmin',3],['Schema design',3],['Query optimization',2],['Stored procedures',2],['Backup & restore',3]]},
+  { cat:'ERP · CMS · LMS', items:[['Odoo',3],['Odoo customization',3],['Data migration',3],['Moodle',2],['Custom LMS',3],['WordPress CMS',3]]},
+  { cat:'Infrastructure', items:[['Windows Server',3],['Linux Server',2],['Active Directory',3],['Network security',3],['VPN',2],['Server maintenance',3],['Preventive maintenance',3]]},
+  { cat:'Tools', items:[['Git',3],['GitHub',3],['VS Code',3],['Postman',3],['Gradle',3],['Composer',2],['Docker',2]]},
+  { cat:'IT management', items:[['Helpdesk management',3],['User training',3],['Vendor coordination',3],['Team leadership',3],['Agile delivery',2],['Documentation',3]]},
+];
+document.getElementById('matrix').innerHTML = SKILLS.map(g=>`
+  <div class="mrow"><div class="mcat">${g.cat}</div><div class="mitems">
+    ${g.items.map(([n,l])=>`<span class="mitem">${n}<i class="pip">${[1,2,3].map(k=>`<i class="${k<=l?'on':''}"></i>`).join('')}</i></span>`).join('')}
+  </div></div>`).join('');
+
+/* ═══ 2. PROJECTS ═══ */
+const PROJECTS = [
+  { t:'Odoo ERP Rollout', k:'ERP implementation', g:'erp', y:'2026', ui:'dash',
+    d:'End-to-end Odoo implementation for a trading company in Jeddah: module customization, data migration from legacy records, staff training and ongoing post-launch support.',
+    x:['Odoo','PostgreSQL','Data migration','Training'] },
+  { t:'DMR Field Reporting App', k:'Android', g:'mobile', y:'2021', ui:'phone',
+    d:'Data Management Reporting app for health field teams. Collects data offline in low-connectivity areas and syncs to the server once a connection returns.',
+    x:['Java','SQLite','REST APIs','Offline sync'] },
+  { t:'Hospital Management System', k:'Web platform', g:'web', y:'2019', ui:'browser',
+    d:'Core modules for a hospital\'s operations — patient records, billing and pharmacy inventory — used daily by clinical and admin staff.',
+    x:['PHP','MySQL','Reporting'] },
+  { t:'Learning Management Platform', k:'LMS', g:'web', y:'2024', ui:'list',
+    d:'Custom LMS and CMS for an educational institution: course delivery, student records and content management, with Moodle running alongside custom modules.',
+    x:['Moodle','PHP','MySQL','REST APIs'] },
+  { t:'Institutional Finance Software', k:'Enterprise', g:'web', y:'2023', ui:'report',
+    d:'Finance system for fees, accounts and reporting, integrated with the LMS and CMS so records stayed in sync across every department.',
+    x:['PHP','PostgreSQL','Integrations'] },
+  { t:'Android Application Suite', k:'Mobile', g:'mobile', y:'2020', ui:'phone2',
+    d:'A set of native Android apps built with Java — Firebase authentication and messaging, Retrofit-backed REST integrations and local SQLite storage.',
+    x:['Java','Firebase','Retrofit','Glide'] },
+  { t:'Database Architecture & APIs', k:'Data layer', g:'data', y:'2025', ui:'pipe',
+    d:'Schema design across MySQL and PostgreSQL for institutional systems, with REST endpoints connecting the LMS, finance and CMS platforms into one record set.',
+    x:['MySQL','PostgreSQL','REST APIs','Schema design'] },
+  { t:'CMS & Institution Website', k:'Web platform', g:'web', y:'2023', ui:'seo',
+    d:'Public website and content management for an educational group — admissions pages, notices, staff directory and a content workflow non-technical staff could run.',
+    x:['WordPress','PHP','MySQL'] },
+  { t:'IT Infrastructure & Security', k:'IT operations', g:'infra', y:'2026', ui:'log',
+    d:'Network security, firewall and VPN configuration, Active Directory administration and server maintenance across offices — with preventive maintenance schedules in place.',
+    x:['Active Directory','Network security','VPN','Windows Server'] },
+  { t:'Backup & Recovery Routines', k:'IT operations', g:'infra', y:'2025', ui:'log2',
+    d:'Scheduled system and database backups with tested restores, so an outage means hours of loss instead of weeks — set up once and monitored since.',
+    x:['Backups','Linux','MySQL dumps','Monitoring'] },
+  { t:'Helpdesk & Asset Management', k:'IT operations', g:'infra', y:'2026', ui:'tools',
+    d:'Ticketing, user support and hardware asset tracking for staff across departments, plus vendor coordination for procurement and repairs.',
+    x:['Helpdesk','Asset tracking','Vendor management'] },
+  { t:'Operational Reporting', k:'Data & MIS', g:'data', y:'2025', ui:'dash2',
+    d:'SQL-driven management reports pulled straight from the finance and LMS databases, replacing spreadsheets that were rebuilt by hand every month.',
+    x:['SQL','Reporting','Excel'] },
+];
+const TABS = [['all','All work'],['erp','ERP'],['web','Web platforms'],['mobile','Mobile apps'],['infra','IT operations'],['data','Data & reporting']];
+
+const bar = a => a.map(h=>`<i style="height:${h}%"></i>`).join('');
+const tk  = a => a.map(c=>`<i class="${c[1]}" style="height:${c[0]}%;margin-top:${c[2]}%"></i>`).join('');
+const UI = {
+  browser:()=>`<div class="scr"><div class="scr-bar"><i class="d r"></i><i class="d a"></i><i class="d g"></i><span class="addr"></span></div>
+    <div class="scr-in"><div class="cl"><span class="ln tall wm"></span>
+    <div class="gr"><span class="bx a"></span><span class="bx"></span><span class="bx"></span><span class="bx"></span><span class="bx g"></span><span class="bx"></span></div>
+    <span class="ln m"></span><span class="ln s"></span></div></div></div>`,
+  dash:()=>`<div class="scr"><div class="scr-bar"><i class="d a"></i><span class="addr"></span></div>
+    <div class="scr-in"><div class="cl rail"><span class="ln l wm"></span><span class="ln l"></span><span class="ln m"></span><span class="ln l"></span><span class="ln s"></span></div>
+    <div class="cl"><div class="gr"><span class="bx a"></span><span class="bx g"></span><span class="bx"></span></div>
+    <div class="chart">${bar([40,66,50,80,60,95,70])}</div></div></div></div>`,
+  dash2:()=>`<div class="scr"><div class="scr-bar"><i class="d g"></i><span class="addr"></span></div>
+    <div class="scr-in"><div class="cl"><div class="gr two"><span class="bx a"></span><span class="bx g"></span></div>
+    <div class="chart">${bar([55,30,75,45,90,60,80,35])}</div><span class="ln m"></span></div></div></div>`,
+  chart:()=>`<div class="scr"><div class="scr-bar"><i class="d a"></i><span class="addr"></span></div>
+    <div class="scr-in" style="position:relative"><span class="rule"></span>
+    <div class="cl" style="flex:2"><div class="tick">${tk([[30,'u',26],[42,'u',14],[26,'d',30],[52,'u',8],[34,'d',20],[60,'u',4],[28,'u',24],[46,'d',12],[38,'u',22],[56,'u',6]])}</div></div>
+    <div class="cl rail"><span class="ln l hi"></span><span class="ln m"></span><span class="ln l"></span><span class="ln s wm"></span><span class="ln m"></span></div></div>
+    <span class="stamp">ERP</span></div>`,
+  chart2:()=>`<div class="scr"><div class="scr-bar"><i class="d g"></i><span class="addr"></span></div>
+    <div class="scr-in" style="position:relative"><span class="rule"></span>
+    <div class="cl"><div class="tick">${tk([[38,'u',20],[30,'d',26],[50,'u',10],[44,'u',16],[26,'d',32],[58,'u',6],[36,'u',22],[48,'d',12],[62,'u',4]])}</div>
+    <span class="ln l wm"></span><span class="ln m hi"></span></div></div><span class="stamp">SYNC</span></div>`,
+  log:()=>`<div class="scr"><div class="scr-bar"><i class="d r"></i><i class="d a"></i><span class="addr"></span></div>
+    <div class="log"><div><span class="a">[net]</span> firewall policy applied</div><div><span class="g">ad</span> 142 users · 6 groups synced</div>
+    <div><span class="w">vpn</span> 8 tunnels up · 0 dropped</div><div><span class="g">srv-01</span> uptime 214d · cpu 12%</div>
+    <div><span class="r">alert</span> disk 78% — cleanup queued</div><div><span class="a">patch</span> window sat 02:00</div></div></div>`,
+  log2:()=>`<div class="scr"><div class="scr-bar"><i class="d g"></i><span class="addr"></span></div>
+    <div class="log"><div><span class="a">backup</span> nightly 01:00</div><div><span class="g">db</span> erp_prod · 2.4 GB · ok</div>
+    <div><span class="w">files</span> 18,402 synced</div><div><span class="g">restore</span> test passed · 6m 12s</div>
+    <div><span class="w">retain</span> 14 daily · 8 weekly</div><div><span class="a">offsite</span> copy verified</div></div></div>`,
+  ext:()=>`<div class="scr"><div class="scr-bar"><i class="d r"></i><i class="d a"></i><i class="d g"></i><span class="addr"></span></div>
+    <div class="scr-in"><div class="cl"><span class="ln m"></span><span class="ln l"></span><span class="ln s"></span><span class="ln m"></span></div>
+    <div class="cl" style="flex:1.1;background:rgba(217,164,65,.09);border:1px solid rgba(217,164,65,.28);border-radius:7px;padding:7px">
+    <span class="ln s wm"></span><span class="ln l"></span><span class="ln l"></span><span class="ln m"></span><span class="ln tall wm" style="margin-top:auto"></span></div></div></div>`,
+  phone:()=>`<div class="scr"><div class="scr-in" style="padding:7px"><div class="dev"><span class="nub"></span>
+    <span class="ln s" style="margin:0 auto"></span>
+    <div style="flex:1;display:grid;place-items:center"><span style="width:50px;height:50px;border-radius:50%;background:rgba(63,191,158,.14);border:1px solid rgba(63,191,158,.45);display:block"></span></div>
+    <span class="ln l hi"></span><span class="ln m" style="margin:0 auto"></span></div></div></div>`,
+  phone2:()=>`<div class="scr"><div class="scr-in" style="padding:7px"><div class="dev"><span class="nub"></span>
+    <span class="ln s wm"></span><span class="ln l"></span><span class="ln m"></span>
+    <div class="gr two" style="flex:none;height:25px"><span class="bx a"></span><span class="bx g"></span></div>
+    <span class="ln l"></span><span class="ln m"></span><span class="ln s"></span></div></div></div>`,
+  tools:()=>`<div class="scr"><div class="scr-bar"><i class="d r"></i><span class="addr"></span></div>
+    <div class="scr-in"><div class="cl"><span class="ln s wm"></span>
+    <div class="gr"><span class="bx a"></span><span class="bx"></span><span class="bx g"></span><span class="bx"></span><span class="bx"></span><span class="bx a"></span></div>
+    <span class="ln m"></span></div></div></div>`,
+  list:()=>`<div class="scr"><div class="scr-bar"><i class="d a"></i><span class="addr"></span></div>
+    <div class="scr-in"><div class="cl rail"><span class="ln l"></span><span class="ln m wm"></span><span class="ln l"></span><span class="ln s"></span></div>
+    <div class="cl">${[0,1,2].map(i=>`<div style="border:1px solid rgba(255,255,255,.09);border-radius:5px;padding:6px;display:flex;flex-direction:column;gap:4px">
+    <span class="ln ${i===0?'m hi':'s'}"></span><span class="ln l"></span></div>`).join('')}</div></div></div>`,
+  app:()=>`<div class="scr"><div class="scr-bar"><i class="d r"></i><i class="d a"></i><span class="addr"></span></div>
+    <div class="scr-in"><div class="cl"><div style="display:flex;gap:5px"><span class="ln tall wm" style="width:34%"></span><span class="ln tall" style="width:34%"></span><span class="ln tall" style="width:32%"></span></div>
+    <div class="log" style="flex:1;padding:6px 0"><div><span class="g">rec</span> click 842,391</div><div><span class="w">key</span> ctrl+v</div><div><span class="a">wait</span> 1.2s</div><div><span class="g">loop</span> 24 / 100</div></div></div></div></div>`,
+  pipe:()=>`<div class="scr"><div class="scr-bar"><i class="d g"></i><span class="addr"></span></div>
+    <div class="scr-in"><div class="cl" style="justify-content:center;gap:8px">
+    <div style="display:flex;align-items:center;gap:6px"><span class="bx g" style="width:26%;height:19px"></span><span class="ln s" style="flex:1"></span><span class="bx a" style="width:26%;height:19px"></span></div>
+    <span class="ln m"></span>
+    <div style="display:flex;align-items:center;gap:6px"><span class="bx" style="width:26%;height:19px"></span><span class="ln s" style="flex:1"></span><span class="bx" style="width:26%;height:19px"></span></div></div></div></div>`,
+  doc2:()=>`<div class="scr"><div class="scr-in" style="padding:10px 12px"><div class="pg" style="flex-direction:row;gap:8px">
+    <div style="flex:1;display:flex;flex-direction:column;gap:4px"><span class="ln s wm"></span><span class="ln l"></span><span class="ln l"></span><span class="ln m"></span><span class="ln l"></span><span class="ln s" style="margin-top:auto"></span></div>
+    <span style="width:1px;background:rgba(13,22,38,.14);display:block"></span>
+    <div style="flex:1;display:flex;flex-direction:column;gap:4px;align-items:flex-end"><span class="ln s wm"></span><span class="ln l"></span><span class="ln l"></span><span class="ln m"></span><span class="ln l"></span><span class="ln s" style="margin-top:auto"></span></div>
+  </div></div><span class="stamp">AR / EN</span></div>`,
+  cv:()=>`<div class="scr"><div class="scr-in" style="padding:10px 14px"><div class="pg" style="flex-direction:row;gap:8px">
+    <div style="width:32%;display:flex;flex-direction:column;gap:4px"><span style="width:21px;height:21px;border-radius:50%;background:rgba(13,22,38,.2);display:block"></span>
+    <span class="ln l"></span><span class="ln m"></span><span class="ln l"></span><span class="ln s"></span></div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:4px"><span class="ln m wm"></span><span class="ln l"></span><span class="ln l"></span><span class="ln s"></span>
+    <span class="ln m wm" style="margin-top:3px"></span><span class="ln l"></span><span class="ln l"></span></div></div></div></div>`,
+  deck:()=>`<div class="scr"><div class="scr-bar"><i class="d a"></i><span class="addr"></span></div>
+    <div class="scr-in" style="flex-direction:column;gap:6px">
+    <div style="flex:1;border-radius:5px;border:1px solid rgba(217,164,65,.26);background:rgba(217,164,65,.08);padding:8px;display:flex;flex-direction:column;gap:5px">
+    <span class="ln s wm"></span><span class="ln m"></span><div class="chart" style="flex:1">${bar([45,70,55,85])}</div></div>
+    <div style="display:flex;gap:5px;height:15px"><span class="bx a" style="flex:1"></span><span class="bx" style="flex:1"></span><span class="bx" style="flex:1"></span><span class="bx" style="flex:1"></span></div></div><span class="stamp">63</span></div>`,
+  chat:()=>`<div class="scr"><div class="scr-bar"><i class="d g"></i><span class="addr"></span></div>
+    <div class="scr-in"><div class="cl rail"><span class="ln l"></span><span class="ln m"></span><span class="ln l hi"></span><span class="ln s"></span></div>
+    <div class="cl"><div style="display:flex;gap:5px;align-items:center"><span style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.18);flex:none;display:block"></span><span class="ln m"></span></div>
+    <div style="border:1px solid rgba(217,164,65,.3);background:rgba(217,164,65,.09);border-radius:5px;padding:5px 6px">
+    <div class="log" style="padding:0;font-size:.48rem;line-height:1.7"><div><span class="a">TICKET</span> #2481 · printer offline</div><div><span class="r">SLA</span> 4h · <span class="g">status</span> assigned</div></div></div>
+    <div style="display:flex;gap:5px;align-items:center"><span style="width:10px;height:10px;border-radius:50%;background:rgba(63,191,158,.35);flex:none;display:block"></span><span class="ln s"></span></div>
+    <span class="ln l hi" style="margin-top:auto"></span></div></div></div>`,
+  news:()=>`<div class="scr"><div class="scr-bar"><i class="d r"></i><span class="addr"></span></div>
+    <div class="scr-in"><div class="cl">
+    ${[['#D96A63','l'],['#D9A441','m'],['rgba(255,255,255,.2)','l']].map(([c,w])=>`<div style="display:flex;gap:6px;align-items:center"><span style="width:6px;height:6px;border-radius:50%;background:${c};flex:none;display:block"></span><span class="ln ${w}"></span></div>`).join('')}
+    <div class="log" style="padding:4px 0;flex:1"><div><span class="r">down</span> node-3 · failover active</div><div><span class="g">restored</span> in 12m · services ok</div></div></div></div></div>`,
+  seo:()=>`<div class="scr"><div class="scr-bar"><i class="d g"></i><span class="addr"></span></div>
+    <div class="scr-in"><div class="cl rail" style="width:34%;justify-content:center;gap:3px">
+    <span style="font-family:var(--display);font-size:1.2rem;color:#3FBF9E;line-height:1">94</span>
+    <span style="font-family:var(--code);font-size:.44rem;letter-spacing:.12em;color:#7A8699">PAGE SCORE</span></div>
+    <div class="cl"><span class="ln l hi"></span><span class="ln m"></span><span class="ln l wm"></span><span class="ln s"></span>
+    <div class="chart">${bar([30,45,60,72,88])}</div></div></div></div>`,
+  art:()=>`<div class="scr"><div class="scr-bar"><i class="d a"></i><span class="addr"></span></div>
+    <div class="scr-in"><div class="gr two" style="gap:6px">
+    <span class="bx" style="background:linear-gradient(140deg,rgba(217,164,65,.34),rgba(217,164,65,.08))"></span>
+    <span class="bx" style="background:linear-gradient(140deg,rgba(63,191,158,.3),rgba(63,191,158,.06))"></span>
+    <span class="bx" style="background:linear-gradient(140deg,rgba(122,150,220,.28),rgba(122,150,220,.05))"></span>
+    <span class="bx" style="background:linear-gradient(140deg,rgba(217,106,99,.26),rgba(217,164,65,.09))"></span></div></div></div>`,
+  report:()=>`<div class="scr"><div class="scr-in" style="padding:10px 14px"><div class="pg">
+    <span class="ln s wm"></span><div class="chart" style="flex:1">${bar([40,62,48,80,55,92])}</div>
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3px">${'<span class="ln l"></span>'.repeat(6)}</div></div></div></div>`,
+};
+
+const projectsEl = document.getElementById('projects');
+projectsEl.innerHTML = PROJECTS.map(p=>`
+  <article class="pcard up" data-g="${p.g}">
+    ${(UI[p.ui]||UI.browser)()}
+    <div class="pmeta"><span class="k">${p.k}</span><span class="y">${p.y}</span></div>
+    <h3>${p.t}</h3><p>${p.d}</p>
+    <div class="ptech">${p.x.map(t=>`<span>${t}</span>`).join('')}</div>
+    ${p.link?`<a class="plink" href="${p.link}" target="_blank" rel="noopener">Visit live site →</a>`:''}
+  </article>`).join('');
+
+const tabsEl = document.getElementById('tabs');
+tabsEl.innerHTML = TABS.map(([k,l],i)=>`<button class="tab" data-g="${k}" aria-pressed="${i===0}">${l}</button>`).join('');
+tabsEl.addEventListener('click',e=>{
+  const b = e.target.closest('.tab'); if(!b) return;
+  tabsEl.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-pressed', t===b));
+  const g = b.dataset.g;
+  projectsEl.querySelectorAll('.pcard').forEach(c=>{
+    c.style.display = (g==='all'||c.dataset.g===g) ? '' : 'none';
+  });
+});
+
+/* ═══ 3. NAV + REVEAL ═══ */
+const topbar = document.getElementById('topbar');
+addEventListener('scroll',()=>topbar.classList.toggle('pinned',scrollY>12),{passive:true});
+const burger = document.getElementById('hamburger'), menu = document.getElementById('menu');
+burger.addEventListener('click',()=>{ burger.setAttribute('aria-expanded', menu.classList.toggle('open')); });
+menu.addEventListener('click',e=>{ if(e.target.tagName==='A') menu.classList.remove('open'); });
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const obs = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('seen'); obs.unobserve(e.target); } });
+},{threshold:.1,rootMargin:'0px 0px -30px'});
+document.querySelectorAll('.up').forEach((el,i)=>{ el.style.transitionDelay=(i%3)*60+'ms'; obs.observe(el); });
+
+/* pipeline lights up stage by stage as it scrolls into view */
+const flowObs = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('lit'); flowObs.unobserve(e.target); } });
+},{threshold:.35,rootMargin:'0px 0px -60px'});
+document.querySelectorAll('.stage').forEach(st=>flowObs.observe(st));
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.querySelectorAll('.stage').forEach(st=>st.classList.add('lit'));
+}
+
+/* ═══ 4. PROJECT BRIEF FORM ═══ */
+const CONTACT = {
+  email:'abidmemon75@gmail.com',
+  whatsapp:'966541262419',     // country code, bina +
+  endpoint:'contact.php'       // PHP handler (same folder)
+};
+document.getElementById('mailLink').href = 'mailto:'+CONTACT.email;
+document.getElementById('waLink').href = 'https://wa.me/'+CONTACT.whatsapp;
+
+const form = document.getElementById('briefForm');
+const note = document.getElementById('formNote');
+const btn = document.getElementById('submitBtn');
+const msg = document.getElementById('f-msg');
+const cnt = document.getElementById('charCount');
+msg.addEventListener('input',()=>{ cnt.textContent = msg.value.length; });
+
+const RULES = [
+  ['f-name',  v => v.trim().length >= 2],
+  ['f-email', v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim())],
+  ['f-type',  v => v !== ''],
+  ['f-msg',   v => v.trim().length >= 20],
+];
+const mark = (el,bad) => el.closest('.field').classList.toggle('bad',bad);
+RULES.forEach(([id,ok])=>{
+  const el = document.getElementById(id);
+  el.addEventListener('blur',()=>{ if(el.value) mark(el,!ok(el.value)); });
+  el.addEventListener('input',()=>{ if(el.closest('.field').classList.contains('bad')) mark(el,!ok(el.value)); });
+});
+function validate(){
+  let first=null, good=true;
+  RULES.forEach(([id,ok])=>{
+    const el=document.getElementById(id), pass=ok(el.value);
+    mark(el,!pass);
+    if(!pass){ good=false; if(!first) first=el; }
+  });
+  if(first) first.focus();
+  return good;
+}
+function plainText(d){
+  return ['New project brief','',
+    'Name:      '+d.name,
+    'Email:     '+d.email,
+    'Phone:     '+(d.phone||'—'),
+    'Company:   '+(d.company||'—'),
+    'Needs:     '+d.project_type,
+    'Budget:    '+(d.budget||'Not stated'),
+    'Timeline:  '+(d.timeline||'Flexible'),
+    'Found via: '+(d.source||'—'),
+    '','Project description','-------------------', d.message].join('\n');
+}
+function showNote(text,bad){
+  note.textContent = text;
+  note.classList.toggle('bad',!!bad);
+  note.classList.add('show');
+}
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  note.classList.remove('show');
+  if(!validate()){ showNote('Some fields need fixing — check the highlighted ones above.',true); return; }
+
+  const data = Object.fromEntries(new FormData(form).entries());
+  data.page = location.href;
+  const label = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Sending…';
+
+  try{
+    const res = await fetch(CONTACT.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    if(!res.ok) throw new Error('status '+res.status);
+    const out = await res.json().catch(()=>({ok:true}));
+    if(out.ok === false) throw new Error(out.error||'rejected');
+    form.reset(); cnt.textContent = '0';
+    showNote('Brief received. You\'ll get a scope, timeline and price back within one working day.');
+  }catch(err){
+    const subject = encodeURIComponent('Project brief — '+(data.project_type||'new enquiry'));
+    const body = encodeURIComponent(plainText(data));
+    showNote('The form couldn\'t send from this page, so your email app is opening with the brief already filled in — just press send.',true);
+    setTimeout(()=>{ location.href='mailto:'+CONTACT.email+'?subject='+subject+'&body='+body; },900);
+  }finally{
+    btn.disabled = false; btn.textContent = label;
+  }
+});
+
+/* ═══ 5. SIGNATURE — 3D layer stack ═══ */
+(function(){
+  const wrap = document.getElementById('stackWrap');
+  const canvas = document.getElementById('stackCanvas');
+  const tip = document.getElementById('plateTip');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!window.THREE) return;
+
+  const LAYERS = [
+    { name:'Operations', sub:'Servers & support',  y: 1.62 },
+    { name:'Interface',  sub:'Apps people use',    y: 0.54 },
+    { name:'Backend',    sub:'Logic & APIs',       y:-0.54 },
+    { name:'Data',       sub:'Schema & ERP',       y:-1.62 },
+  ];
+
+  let renderer;
+  try{ renderer = new THREE.WebGLRenderer({canvas,alpha:true,antialias:true}); }
+  catch(e){ return; }
+  document.getElementById('stackFallback').style.display='none';
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(34,1,0.1,60);
+  camera.position.set(0,0,11.5);
+  const root = new THREE.Group();
+  root.rotation.set(-0.42,0.62,0);
+  scene.add(root);
+
+  const W=4.0, D=2.9, H=0.30, plates=[];
+  LAYERS.forEach((L,i)=>{
+    const g = new THREE.Group();
+    g.position.y = L.y;
+    const box = new THREE.BoxGeometry(W,H,D);
+    const face = new THREE.Mesh(box,new THREE.MeshBasicMaterial({
+      color: i===0 ? 0x0B5D4E : 0xFFFFFF,
+      transparent:true, opacity: i===0 ? 0.16 : 0.55, depthWrite:false }));
+    g.add(face);
+    const edge = new THREE.LineSegments(new THREE.EdgesGeometry(box),
+      new THREE.LineBasicMaterial({color:0x0D1626,transparent:true,opacity:.72}));
+    g.add(edge);
+
+    const cols=7, rows=4, pts=[];
+    for(let x=0;x<cols;x++) for(let z=0;z<rows;z++)
+      pts.push((x/(cols-1)-.5)*(W-0.9), H/2+0.012, (z/(rows-1)-.5)*(D-0.7));
+    const pg = new THREE.BufferGeometry();
+    pg.setAttribute('position',new THREE.BufferAttribute(new Float32Array(pts),3));
+    g.add(new THREE.Points(pg,new THREE.PointsMaterial({color:0x0B5D4E,size:0.075,transparent:true,opacity:.85,depthWrite:false})));
+
+    if(i < LAYERS.length-1){
+      const gp = new THREE.BufferGeometry();
+      gp.setAttribute('position',new THREE.BufferAttribute(new Float32Array([0,-H/2,0, 0, LAYERS[i+1].y-L.y+H/2, 0]),3));
+      g.add(new THREE.Line(gp,new THREE.LineBasicMaterial({color:0x0D1626,transparent:true,opacity:.28})));
+    }
+    root.add(g);
+    plates.push({group:g, face, edge, base:L.y, off:0, target:0});
+  });
+
+  const picks = plates.map((p,i)=>{
+    const m = new THREE.Mesh(new THREE.BoxGeometry(W,H*2.4,D),new THREE.MeshBasicMaterial({visible:false}));
+    m.userData.i = i; p.group.add(m); return m;
+  });
+
+  const ray = new THREE.Raycaster();
+  const ndc = new THREE.Vector2(-9,-9);
+  let hover=-1, spin=0, dragging=false, lastX=0, vel=0;
+  const TILT = -0.42;
+
+  function size(){
+    const w = wrap.clientWidth, h = wrap.clientHeight;
+    if(!w||!h) return;
+    renderer.setSize(w,h,false);
+    camera.aspect = w/h; camera.updateProjectionMatrix();
+  }
+  size(); addEventListener('resize',size);
+
+  wrap.addEventListener('pointermove',e=>{
+    const r = canvas.getBoundingClientRect();
+    ndc.x = ((e.clientX-r.left)/r.width)*2-1;
+    ndc.y = -((e.clientY-r.top)/r.height)*2+1;
+    if(dragging){ vel += (e.clientX-lastX)*0.0006; lastX = e.clientX; }
+  });
+  wrap.addEventListener('pointerleave',()=>ndc.set(-9,-9));
+  wrap.addEventListener('pointerdown',e=>{ dragging=true; lastX=e.clientX; canvas.classList.add('grabbing'); });
+  addEventListener('pointerup',()=>{ dragging=false; canvas.classList.remove('grabbing'); });
+
+  const tmp = new THREE.Vector3();
+  function frame(){
+    requestAnimationFrame(frame);
+    if(!dragging && !reduced) spin += 0.0022;
+    spin += vel; vel *= 0.92;
+    root.rotation.y = 0.62 + spin;
+    root.rotation.x += (TILT - root.rotation.x)*0.08;
+
+    ray.setFromCamera(ndc,camera);
+    const hit = ray.intersectObjects(picks,false);
+    const idx = hit.length ? hit[0].object.userData.i : -1;
+    if(idx !== hover){
+      hover = idx;
+      if(idx>=0){
+        tip.querySelector('b').textContent = LAYERS[idx].name;
+        tip.querySelector('span').textContent = LAYERS[idx].sub;
+        tip.classList.add('show'); canvas.style.cursor='pointer';
+      }else{
+        tip.classList.remove('show'); canvas.style.cursor='grab';
+      }
+    }
+
+    plates.forEach((p,i)=>{
+      p.target = (i===hover) ? 0.42 : 0;
+      p.off += (p.target - p.off)*0.14;
+      p.group.position.y = p.base + p.off;
+      p.face.material.opacity = (i===0 ? 0.16 : 0.55) + (i===hover ? 0.22 : 0);
+      p.edge.material.opacity = 0.72 + (i===hover ? 0.28 : 0);
+    });
+
+    if(hover>=0){
+      tmp.set(0, plates[hover].group.position.y + 0.35, 0).applyMatrix4(root.matrixWorld).project(camera);
+      const r = canvas.getBoundingClientRect();
+      tip.style.left = ((tmp.x*.5+.5)*r.width)+'px';
+      tip.style.top  = ((-tmp.y*.5+.5)*r.height)+'px';
+    }
+    renderer.render(scene,camera);
+  }
+  frame();
+})();
+</script>
+</body>
+</html>
